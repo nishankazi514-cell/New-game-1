@@ -16,7 +16,7 @@ ROUND_BREAK      = 2.4
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "speed-tap-secret"
-socketio = SocketIO(app, async_mode="eventlet", cors_allowed_origins="*")
+socketio = SocketIO(app, async_mode='threading')
 
 # ---------- মেমরি ----------
 waiting_queue = []
