@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#06060d">
+<title>Speed Tap Arena</title>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- START SCREEN -->
+  <section id="screen-start" class="screen active">
+    <div class="logo">
+      <h1>SPEED <span>TAP</span><br>ARENA</h1>
+      <p class="tagline">Fastest finger wins · Best of 3</p>
+    </div>
+    <input id="name-input" type="text" maxlength="14" placeholder="Your name" autocomplete="off">
+    <button id="btn-find" class="btn-primary">FIND MATCH</button>
+    <p class="hint">Wait for GREEN — then tap fast. Early tap loses the round.</p>
+  </section>
+
+  <!-- QUEUE SCREEN -->
+  <section id="screen-queue" class="screen">
+    <div class="spinner"></div>
+    <h2>Searching for opponent…</h2>
+    <p class="hint">You are in the matchmaking queue.</p>
+    <button id="btn-cancel" class="btn-ghost">CANCEL</button>
+  </section>
+
+  <!-- GAME SCREEN -->
+  <section id="screen-game" class="screen">
+    <header class="hud">
+      <div class="player you">
+        <span class="pname" id="you-name">You</span>
+        <span class="pscore" id="you-score">0</span>
+      </div>
+      <div class="round-info">
+        <span class="round-label">ROUND</span>
+        <span class="round-num" id="round-num">1</span>
+      </div>
+      <div class="player opp">
+        <span class="pname" id="opp-name">Opponent</span>
+        <span class="pscore" id="opp-score">0</span>
+      </div>
+    </header>
+
+    <div id="arena" class="arena">
+      <div class="center-stack">
+        <div id="big-text" class="big-text">Get Ready…</div>
+        <div id="sub-text" class="sub-text"></div>
+        <div id="signal-text" class="signal-text">TAP NOW!</div>
+      </div>
+    </div>
+
+    <footer class="status-bar">
+      <span id="status-text">Waiting…</span>
+    </footer>
+  </section>
+
+  <!-- RESULT OVERLAY -->
+  <div id="result-overlay" class="overlay">
+    <div class="result-card">
+      <div id="result-icon" class="result-icon">🏆</div>
+      <h2 id="result-title" class="result-title win">VICTORY</h2>
+      <p id="result-sub">Match complete</p>
+      <div class="score-line">
+        <span id="result-you">0</span>
+        <span class="dash">–</span>
+        <span id="result-opp">0</span>
+      </div>
+      <button id="btn-again" class="btn-primary">PLAY AGAIN</button>
+    </div>
+  </div>
+
+</div>
+<script src="/static/main.js"></script>
+</body>
+  </html>
